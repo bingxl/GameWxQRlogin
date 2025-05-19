@@ -20,7 +20,7 @@ public class Constant {
             "&scope=snsapi_base,snsapi_userinfo,snsapi_friend,snsapi_message&state=weixin";
 
     public static final String SERVER = "https://q.willh.cn//graw/Willh92/GameWxQRlogin/main/";
-    public static final String API_VERSION = SERVER + "config/v.json";
-    public static final String API_MENU = SERVER + "games/gameList2-min.json";
+    public static final String API_VERSION = "https://cdn.jsdelivr.net/npm/game-wx-qr-login/version.json";
+    public static String API_MENU = "https://cdn.jsdelivr.net/npm/game-wx-qr-login/gameList-min.json";
 
 }

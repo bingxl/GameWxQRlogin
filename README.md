@@ -4,7 +4,7 @@
 
 理论上支持所有支持微信扫码登录的游戏
 
-[查看游戏列表](/games/gameList2.json?raw=true)
+[查看游戏列表](/games/gameList.json?raw=true)
 
 ## 登录方式一
 

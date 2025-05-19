@@ -103,6 +103,7 @@ public class MainActivity extends Activity implements MenuDialogFragment.MenuCli
             updateMenu(true);
         } else {
             mMenuList = MenuUtil.getMenu(this);
+//            this.getFilesDir();
             selectGame(mMenuList.menu.get(getConfig().getString(Constant.CONFIG_GAME, "")));
             checkVersion();
         }
