@@ -82,9 +82,22 @@ jobs:
 #        with:
 #          name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - App bundle(s) AAB release generated
 #          path: ${{ env.main_project_module }}/build/outputs/bundle/release/
+      - uses: r0adkll/sign-android-release@v1
+        name: Sign app APK
+        # ID used to access action output
+        id: sign_app
+        with:
+          releaseDirectory: ${{ env.main_project_module }}/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+            # override default build-tools version (33.0.0) -- optional
+            BUILD_TOOLS_VERSION: "31.0.0"
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files:
-            ${{ env.main_project_module }}/build/outputs/apk/release/app-release-unsigned.apk
+            ${{steps.sign_app.outputs.signedReleaseFile}}
